@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $PREFIX/glibc/opt/termux-style/termux-style
+. $PREFIX/glibc/opt/termux-style/termux-style-custom
 . $PREFIX/glibc/opt/scripts/dialogs
 . $PREFIX/glibc/opt/scripts/configs
 apply-termux-style

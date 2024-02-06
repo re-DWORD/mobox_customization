@@ -11,7 +11,7 @@ if [ "$WINEESYNC" = "1" ] && [ "$WINEESYNC_TERMUX" = "0" ]; then
 	sudo mkdir /dev/shm &>/dev/null
 	sudo chmod 1777 /dev/shm &>/dev/null
 fi
-dialog_menu "Mobox" "" \
+dialog_menu "Custom-Mobox" "" \
 "1" "Start Wine" \
 "2" "Settings" \
 "3" "Manage packages" \
@@ -32,7 +32,7 @@ case $? in
 	fi
 ;;
 2)
-	. $PREFIX/glibc/opt/scripts/settings
+	. $PREFIX/glibc/opt/scripts/custom-settings
 ;;
 3)
 	load_package-manager

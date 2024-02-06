@@ -1,0 +1,29 @@
+function apply-termux-style {
+	if [ ! -e ~/.termux/colors.properties ]; then
+		touch ~/.termux/colors.properties
+	fi
+	if [ ! -e ~/.termux/font.ttf ]; then
+		touch ~/.termux/font.ttf
+	fi
+	cp -n ~/.termux/{font.ttf,colors.properties} $PREFIX/glibc/opt/termux-style/default &>/dev/null
+	cp $PREFIX/glibc/opt/termux-style/mobox-custom/{font.ttf,colors.properties} ~/.termux
+	termux-reload-settings
+}
+
+function restore-termux-style {
+	if [ -e $PREFIX/glibc/opt/termux-style/default/colors.properties ]; then
+		cp $PREFIX/glibc/opt/termux-style/default/{font.ttf,colors.properties} ~/.termux
+		rm -rf $PREFIX/glibc/opt/termux-style/default/{font.ttf,colors.properties}
+		if [ ! -s ~/.termux/font.ttf ]; then
+			rm -rf ~/.termux/font.ttf
+		fi
+		if [ ! -s ~/.termux/colors.properties ]; then
+			rm -rf ~/.termux/colors.properties
+		fi
+		termux-reload-settings
+#	else
+#		rm -rf ~/.termux/{font.ttf,colors.properties}
+#		rm -rf $PREFIX/glibc/opt/termux-style/default/{font.ttf,colors.properties}
+#		termux-reload-settings
+	fi
+}

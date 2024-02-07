@@ -4,7 +4,7 @@ defitem=1
 
 while true; do
 load_configs
-dialog_menu_item $defitem "Dynarec preset" "\ZbCurrent settings:\Zn
+dialog_menu_item $defitem "Dynarec presets" "\ZbCurrent settings:\Zn
   \Z3DYNAREC_ALIGNED_ATOMICS \Z2= \Zn$BOX64_DYNAREC_ALIGNED_ATOMICS
   \Z3BOX86_DYNAREC_BIGBLOCK \Z2= \Zn$BOX86_DYNAREC_BIGBLOCK
   \Z3BOX64_DYNAREC_BIGBLOCK \Z2= \Zn$BOX64_DYNAREC_BIGBLOCK

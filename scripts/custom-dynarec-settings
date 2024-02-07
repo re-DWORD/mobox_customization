@@ -15,8 +15,7 @@ dialog_menu_item $defitem "Dynarec settings" "" \
 	"8" "DYNAREC_X87DOUBLE\Z2=\Z3$BOX64_DYNAREC_X87DOUBLE" \
 	"9" "DYNAREC_CALLRET\Z2=\Z3$BOX64_DYNAREC_CALLRET" \
 	"10" "Reset to default" \
-	"11" "Switch to preset based dynarec configurator" \
-	"12" "Custom Preset for Deus Ex Human Revolution"
+	"11" "Switch to preset based dynarec configurator" 
 defitem=$?
 case $defitem in
 1)
@@ -142,26 +141,6 @@ export BOX64_DYNAREC_CALLRET=1">$PREFIX/glibc/opt/conf/dynarec/callret.conf
 	echo "export DYNAREC_SETTINGS_SCRIPT=2
 export DYNAREC_CURRENT_PRESET=none">$PREFIX/glibc/opt/conf/dynarec_preset.conf
 	break
-;;
-12)
-	echo "export BOX86_DYNAREC_ALIGNED_ATOMICS=1
-export BOX64_DYNAREC_ALIGNED_ATOMICS=1">$PREFIX/glibc/opt/conf/dynarec/aligned_atomics.conf
-	echo "export BOX86_DYNAREC_BIGBLOCK=$BOX86_DYNAREC_BIGBLOCK
-export BOX64_DYNAREC_BIGBLOCK=2">$PREFIX/glibc/opt/conf/dynarec/bigblock.conf
-	echo "export BOX86_DYNAREC_BIGBLOCK=1
-export BOX64_DYNAREC_BIGBLOCK=$BOX64_DYNAREC_BIGBLOCK">$PREFIX/glibc/opt/conf/dynarec/bigblock.conf
-	echo "export BOX86_DYNAREC_FASTNAN=1
-export BOX64_DYNAREC_FASTNAN=1">$PREFIX/glibc/opt/conf/dynarec/fastnan.conf
-	echo "unset BOX86_DYNAREC_SAFEFLAGS
-unset BOX64_DYNAREC_SAFEFLAGS">$PREFIX/glibc/opt/conf/dynarec/safeflags.conf
-	echo "unset BOX86_DYNAREC_STRONGMEM
-unset BOX64_DYNAREC_STRONGMEM">$PREFIX/glibc/opt/conf/dynarec/strongmem.conf
-	echo "unset BOX86_DYNAREC_WAIT
-unset BOX64_DYNAREC_WAIT">$PREFIX/glibc/opt/conf/dynarec/wait.conf
-	echo "unset BOX86_DYNAREC_X87DOUBLE
-unset BOX64_DYNAREC_X87DOUBLE">$PREFIX/glibc/opt/conf/dynarec/x87double.conf
-	echo "export BOX86_DYNAREC_CALLRET=0
-export BOX64_DYNAREC_CALLRET=0">$PREFIX/glibc/opt/conf/dynarec/callret.conf
 ;;
 255)
 	break

@@ -5,14 +5,15 @@ defitem_settings=1
 while true; do
 dialog_menu_item $defitem_settings "Settings" "" \
 "1" "Dynarec settings" \
-"2" "Wine prefix settings (+ESYNC)" \
-"3" "DXVK settings" \
-"4" "System settings" \
-"5" "Debug settings" \
-"6" "Root settings" \
-"7" "VirGL settings" \
-"8" "Backup and restore" \
-"9" "Device compatibility settings"
+"2" "Dynarec presets" \
+"3" "Wine prefix settings (+ESYNC)" \
+"4" "DXVK settings" \
+"5" "System settings" \
+"6" "Debug settings" \
+"7" "Root settings" \
+"8" "VirGL settings" \
+"9" "Backup and restore" \
+"10" "Device compatibility settings"
 defitem_settings=$?
 case $defitem_settings in
 1)
@@ -24,15 +25,18 @@ case $defitem_settings in
 	fi
 ;;
 2)
-	. $PREFIX/glibc/opt/scripts/prefix-settings
+	. $PREFIX/glibc/opt/scripts/custom-dynarec-presets
 ;;
 3)
-	. $PREFIX/glibc/opt/scripts/dxvk-settings
+	. $PREFIX/glibc/opt/scripts/prefix-settings
 ;;
 4)
-	. $PREFIX/glibc/opt/scripts/custom-system-settings
+	. $PREFIX/glibc/opt/scripts/dxvk-settings
 ;;
 5)
+	. $PREFIX/glibc/opt/scripts/custom-system-settings
+;;
+6)
 	defitem=1
 	while true; do
 	load_configs
@@ -55,16 +59,16 @@ case $defitem_settings in
 	esac
 	done
 ;;
-6)
+7)
 	. $PREFIX/glibc/opt/scripts/root-settings
 ;;
-7)
+8)
 	. $PREFIX/glibc/opt/scripts/virgl-settings
 ;;
-8)
+9)
 	. $PREFIX/glibc/opt/scripts/restore-menu
 ;;
-9)
+10)
 	. $PREFIX/glibc/opt/scripts/compatibility-settings
 ;;
 255)

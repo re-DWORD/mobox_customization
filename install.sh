@@ -18,4 +18,6 @@ chmod 744 $PREFIX/glibc/opt/scripts/custom-settings
 chmod 744 $PREFIX/glibc/opt/scripts/custom-system-settings 
 chmod 744 $PREFIX/glibc/opt/scripts/mobox_custom_menu
 chmod 744 $PREFIX/glibc/opt/scripts/custom-dynarec-presets
+wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/D-W-O-R-D/mobox_customization/main/uninstall.sh -P $PREFIX/custom-mobox
+chmod 744 $PREFIX/custom-mobox/uninstall.sh
 ln -sf $PREFIX/glibc/opt/scripts/custom-mobox $PREFIX/bin/custom-mobox

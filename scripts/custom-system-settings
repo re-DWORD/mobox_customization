@@ -25,7 +25,7 @@ case $defitem in
 1)
 	dialog_menu "" "Select new resolution." \
 	"1" "Custom resolution" \
-	"2" "854x480    (16:9)" \
+	"2" "848x480    (16:9)" \
 	"3" "1280x720   (16:9)" \
 	"4" "1280x1024   (5:4)" \
 	"5" "800x480     (5:3)" \
@@ -39,9 +39,9 @@ case $defitem in
 	echo "$i">$PREFIX/glibc/opt/last-resolution.conf
 	;;
 	2)	
-	echo "854x480">$PREFIX/glibc/opt/last-resolution.conf;;
+	echo "848x480">$PREFIX/glibc/opt/last-resolution.conf;;
 	3)	
-	echo "280x720">$PREFIX/glibc/opt/last-resolution.conf;;
+	echo "1280x720">$PREFIX/glibc/opt/last-resolution.conf;;
 	4)	
 	echo "1280x1024">$PREFIX/glibc/opt/last-resolution.conf;;
 	5)	

@@ -1,4 +1,5 @@
 #!/bin/bash
+. $PREFIX/custom-mobox/uninstall.sh
 rm -r $PREFIX/custom-mobox
 rm -r $PREFIX/bin/custom-mobox-update
 curl -s -o ~/x https://raw.githubusercontent.com/D-W-O-R-D/mobox_customization/main/install.sh && . ~/x

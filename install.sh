@@ -23,4 +23,4 @@ wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/D-W-O-R-
 chmod 744 $PREFIX/custom-mobox/uninstall.sh
 chmod 744 $PREFIX/custom-mobox/custom-mobox-update
 ln -sf $PREFIX/glibc/opt/scripts/custom-mobox $PREFIX/bin/custom-mobox
-ln -sf $PREFIX/glibc/opt/scripts/custom-mobox-update $PREFIX/bin/custom-mobox
+ln -sf $PREFIX/custom-mobox/custom-mobox-update $PREFIX/bin/custom-mobox-update

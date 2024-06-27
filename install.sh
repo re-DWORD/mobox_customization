@@ -1,4 +1,4 @@
-R#!/bin/bash
+#!/bin/bash
 
 wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/termux-style/mobox-custom/colors.properties -P $PREFIX/glibc/opt/termux-style/mobox-custom
 wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/termux-style/mobox-custom/font.ttf -P $PREFIX/glibc/opt/termux-style/mobox-custom

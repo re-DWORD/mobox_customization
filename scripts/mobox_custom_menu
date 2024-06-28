@@ -1,9 +1,20 @@
 #!/bin/bash
 
-. $PREFIX/glibc/opt/termux-style/termux-style-custom
+. $PREFIX/glibc/opt/termux-style/termux-style
 . $PREFIX/glibc/opt/scripts/dialogs
 . $PREFIX/glibc/opt/scripts/configs
 apply-termux-style
+
+## TODO: Remove this
+mkdir -p "$PREFIX/glibc/opt/notice"
+if [ ! -e "$PREFIX/glibc/opt/notice/notice1_shown" ]; then
+	touch "$PREFIX/glibc/opt/notice/notice1_shown"
+	dialog_msgbox "Notice from olegos2" \
+		"May 2\nAll Mobox Edge related posts (until now) were not signed off by me. All the information in these posts is not official and is not verified. Mobox Edge has not been announced yet. It doesn't exist yet."
+fi
+##
+
+
 while true; do
 load_configs
 if [ "$WINEESYNC" = "1" ] && [ "$WINEESYNC_TERMUX" = "0" ]; then
@@ -11,18 +22,15 @@ if [ "$WINEESYNC" = "1" ] && [ "$WINEESYNC_TERMUX" = "0" ]; then
 	sudo mkdir /dev/shm &>/dev/null
 	sudo chmod 1777 /dev/shm &>/dev/null
 fi
-dialog_menu "Custom-Mobox" "" \
+dialog_menu "Custom-Mobox (wow64)" "" \
 "1" "Start Wine" \
 "2" "Settings" \
 "3" "Manage packages" \
 "4" "Select current wine container" \
-"5" "Change box86 and box64 builds" \
+"5" "Change box64 build" \
 "6" "Patch notes (readme)"
 case $? in
 1)
-	if [ ! -e "$PREFIX/glibc/bin/box86" ] || [ ! -e "$PREFIX/glibc/bin/box64" ]; then
-		tar -xf $PREFIX/glibc/opt/box/dec13.tar.xz -C $PREFIX/glibc/bin
-	fi
 	if [ ! "$WINE_PATH" = "" ] && [ -e "$WINE_PATH" ]; then
 		chmod 777 $PREFIX/glibc/opt/scripts/start-tfm
 		$PREFIX/glibc/opt/scripts/start-tfm
@@ -137,36 +145,31 @@ export WINEPREFIX=\$PREFIX/glibc/$i/.wine">$PREFIX/glibc/opt/conf/wine_path.conf
 	sleep 1
 ;;
 5)
-	dialog_menu "Change box86 and box64 builds" "" \
-	"1" "Nov 10 builds" \
-	"2" "Dec 23 builds (default)" \
-	"3" "Jan 18 builds (box64 issues reported)"
+	dialog_menu "Change box64 build" "" \
+	"1" "Mar 3 builds" \
+	"2" "Feb 14 builds"
 	case $? in
 	1)
-		tar -xf $PREFIX/glibc/opt/box/nov10.tar.xz -C $PREFIX/glibc/bin
+		tar -xf $PREFIX/glibc/opt/box/mar3.tar.xz -C $PREFIX/glibc/bin
 	;;
 	2)
-		tar -xf $PREFIX/glibc/opt/box/dec23.tar.xz -C $PREFIX/glibc/bin
-	;;
-	3)
-		tar -xf $PREFIX/glibc/opt/box/jan18.tar.xz -C $PREFIX/glibc/bin
+		tar -xf $PREFIX/glibc/opt/box/feb14.tar.xz -C $PREFIX/glibc/bin
 	;;
 	esac
 ;;
 6)
-	dialog_msgbox "Patch notes" "\Z3Jan 15\Zn
-1. Added new wine-ge-custom-8-25
-2. Fixed OOM Adjuster
-3. Added WINE ESYNC for all users.
-4. Replaced winedevice.exe kill with all services kill
-5. Fixed VKD3D for Elden Ring
-\Z3Jan 18\Zn
-1. Added experimental media foundation codecs for 64 bit RE games, available in start menu
-2. Updated box builds, installed by default
-\Z3Jan 19\Zn
-1. Reverted boxes update...
-\Z3Not being implemented for now, planned\Zn
-dxvk settings in start menu, xinput"
+	dialog_msgbox "Patch notes" "\Z3Mar 3\Zn
+Updated box64, box64rc, dxvk.conf, locale.conf, path.conf
+Added en-ru-locale package that fixes unicode issues in wine
+Locale is set to en_US.utf8 by default
+Wine is 9.3 by default
+Added turnip v6.5, it's default now, no flickering, no mem leaks
+Removed turnip v5.5 and v6
+Fixed some games that needed nouboopt debug option
+Added feb 14 box64
+Updated glibc to 2.39
+Fixed GTA V memory leak
+"
 ;;
 255)
 	break

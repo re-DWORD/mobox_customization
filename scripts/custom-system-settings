@@ -17,9 +17,8 @@ dialog_menu_item $defitem "System settings" "\ZbCurrent settings:\Zn
 	"2" "Change primary cores amount" \
 	"3" "Change locale" \
 	"4" "Change HUD preset" \
-	"5" "Select a7xx flicker fix (TU_DEBUG)" \
-	"6" "Change WSI_PRESENT_MODE" \
-	"7" "Reset to default"
+	"5" "Select TU_DEBUG" \
+	"6" "Reset to default"
 defitem=$?
 case $defitem in
 1)
@@ -61,7 +60,8 @@ case $defitem in
 	"4" "primary cores" \
 	"5" "primary cores" \
 	"6" "primary cores" \
-	"7" "primary cores"
+	"7" "primary cores" \
+	"8" "primary cores"
 	case $? in
 	2) echo "export PRIMARY_CORES=6-7
 export SECONDARY_CORES=0-5">$PREFIX/glibc/opt/conf/cores.conf ;;
@@ -75,6 +75,9 @@ export SECONDARY_CORES=0-2">$PREFIX/glibc/opt/conf/cores.conf ;;
 export SECONDARY_CORES=0-1">$PREFIX/glibc/opt/conf/cores.conf ;;
 	7) echo "export PRIMARY_CORES=1-7
 export SECONDARY_CORES=0-1">$PREFIX/glibc/opt/conf/cores.conf ;;
+	8) echo "export PRIMARY_CORES=0-7
+export SECONDARY_CORES=0-1">$PREFIX/glibc/opt/conf/cores.conf ;;
+	
 	esac
 ;;
 3)
@@ -108,8 +111,8 @@ export DXVK_HUD=version,fps,api,scale=0.7,devinfo,gpuload,frametimes">$PREFIX/gl
 5)
 	dialog_menu "" "" \
 "1" "TU_DEBUG=noconform" \
-"2" "TU_DEBUG=noconform,syncdraw (a7xx)" \
-"3" "TU_DEBUG=noconform,syncdraw,flushall (a7xx)"
+"2" "TU_DEBUG=noconform,syncdraw (slow)" \
+"3" "TU_DEBUG=noconform,syncdraw,flushall (slower)"
 	case $? in
 	1)
 		echo "export TU_DEBUG=noconform">$PREFIX/glibc/opt/conf/tu_debug.conf
@@ -123,19 +126,6 @@ export DXVK_HUD=version,fps,api,scale=0.7,devinfo,gpuload,frametimes">$PREFIX/gl
 	esac
 ;;
 6)
-	dialog_menu "" "" \
-"1" "WSI_PRESENT_MODE=mailbox" \
-"2" "WSI_PRESENT_MODE=relaxed (a7xx)"
-	case $? in
-	1)
-		echo "export MESA_VK_WSI_PRESENT_MODE=mailbox">$PREFIX/glibc/opt/conf/wsi_present.conf
-	;;
-	2)
-		echo "export MESA_VK_WSI_PRESENT_MODE=relaxed">$PREFIX/glibc/opt/conf/wsi_present.conf
-	;;
-	esac
-;;
-7)
 	cp $PREFIX/glibc/opt/default-conf/conf/{cores.conf,hud.conf,tu_debug.conf,wsi_present.conf} $PREFIX/glibc/opt/conf
 	cp $PREFIX/glibc/opt/default-conf/{last-resolution.conf,locale.conf} $PREFIX/glibc/opt
 ;;

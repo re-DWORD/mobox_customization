@@ -1,5 +1,5 @@
 # Installation
-Mobox must already be installed
+Mobox (Wow64) must already be installed
 
 Open termux and paste command.
 ```bash

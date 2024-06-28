@@ -2,7 +2,6 @@
 
 rm -r $PREFIX/glibc/opt/termux-style/mobox-custom
 rm -r $PREFIX/glibc/opt/termux-style/termux-style-custom
-rm -r $PREFIX/glibc/opt/scripts/custom-dynarec-settings
 rm -r $PREFIX/glibc/opt/scripts/custom-mobox
 rm -r $PREFIX/glibc/opt/scripts/custom-settings
 rm -r $PREFIX/glibc/opt/scripts/custom-system-settings

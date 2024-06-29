@@ -23,7 +23,7 @@ case $defitem in
 	echo "unset BOX64_DYNAREC_ALIGNED_ATOMICS">$PREFIX/glibc/opt/conf/dynarec/aligned_atomics.conf
 	echo "export BOX64_DYNAREC_BIGBLOCK=2">$PREFIX/glibc/opt/conf/dynarec/bigblock.conf
 	echo "export BOX64_DYNAREC_FASTNAN=1">$PREFIX/glibc/opt/conf/dynarec/fastnan.conf
-	echo "export BOX64_DYNAREC_SAFEFLAGS=1">$PREFIX/glibc/opt/conf/dynarec/safeflags.conf
+	echo "export BOX64_DYNAREC_SAFEFLAGS=2">$PREFIX/glibc/opt/conf/dynarec/safeflags.conf
 	echo "export BOX64_DYNAREC_STRONGMEM=0">$PREFIX/glibc/opt/conf/dynarec/strongmem.conf
 	echo "export BOX64_DYNAREC_WAIT=1">$PREFIX/glibc/opt/conf/dynarec/wait.conf
 	echo "export BOX64_DYNAREC_X87DOUBLE=0">$PREFIX/glibc/opt/conf/dynarec/x87double.conf

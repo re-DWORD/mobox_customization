@@ -13,7 +13,10 @@ dialog_menu_item $defitem "Dynarec presets" "\ZbCurrent settings:\Zn
   \Z3DYNAREC_WAIT \Z2= \Zn$BOX64_DYNAREC_WAIT
   \Z3DYNAREC_X87DOUBLE \Z2= \Zn$BOX64_DYNAREC_X87DOUBLE
   \Z3DYNAREC_CALLRET \Z2= \Zn$BOX64_DYNAREC_CALLRET
-  \Z3IGNOREINT3 \Z2= \Zn$BOX64_IGNOREINT3" \
+  \Z3IGNOREINT3 \Z2= \Zn$BOX64_IGNOREINT3
+
+  \Z3$(sed '4q;d' $DXVK_CONFIG_FILE)\Zn
+  \Z3FALLBACK RESOLUTION\Z2=\Zn$(cat $PREFIX/glibc/opt/last-resolution.conf)\Zn" \
     "1" "Resident Evil 6" \
 	"2" "TES-IV Oblivion" \
 

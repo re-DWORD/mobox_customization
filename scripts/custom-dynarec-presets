@@ -24,6 +24,7 @@ dialog_menu_item $defitem "Dynarec presets" "\ZbCurrent settings:\Zn
 	" " " " \
 	"200" "Resolution changing $DYNAREC_PRESET_RESOLUTION_SWITCH" \
 	"201" "Max framerate changing $DYNAREC_PRESET_FPS_SWITCH" \
+	
 defitem=$?
 case $defitem in
 1)

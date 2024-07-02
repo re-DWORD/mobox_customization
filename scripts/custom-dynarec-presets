@@ -16,10 +16,14 @@ dialog_menu_item $defitem "Dynarec presets" "\ZbCurrent settings:\Zn
   \Z3IGNOREINT3 \Z2= \Zn$BOX64_IGNOREINT3
 
   \Z3$(sed '4q;d' $DXVK_CONFIG_FILE)\Zn
-  \Z3FALLBACK RESOLUTION\Z2=\Zn$(cat $PREFIX/glibc/opt/last-resolution.conf)\Zn" \
+  \Z3FALLBACK RESOLUTION\Z2=\Zn$(cat $PREFIX/glibc/opt/last-resolution.conf)\Zn
+  
+  \Z3Current Preset\Z2=\Zn$(cat $PREFIX/glibc/opt/custom-preset-current.conf)\Zn" \
     "1" "Resident Evil 6" \
 	"2" "TES-IV Oblivion" \
-
+	" " " " \
+	"200" "Resolution changing $DYNAREC_PRESET_RESOLUTION_SWITCH" \
+	"201" "Max framerate changing $DYNAREC_PRESET_FPS_SWITCH" \
 defitem=$?
 case $defitem in
 1)
@@ -33,9 +37,14 @@ case $defitem in
 	echo "export BOX64_DYNAREC_CALLRET=1">$PREFIX/glibc/opt/conf/dynarec/callret.conf
 	echo "unset BOX64_DYNAREC_FASTROUND">$PREFIX/glibc/opt/conf/dynarec/fastround.conf
 	echo "unset BOX64_IGNOREINT3">$PREFIX/glibc/opt/conf/dynarec/ignoreint3.conf
-	echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
-	sed -i '4s/.*/dxgi.maxFrameRate = 32/' $DXVK_CONFIG_FILE
-	sed -i '5s/.*/d3d9.maxFrameRate = 32/' $DXVK_CONFIG_FILE
+	if [ "$DYNAREC_PRESET_RESOLUTION_SWITCH" = "enabled" ]; then
+		echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
+	fi
+	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
+		sed -i '4s/.*/dxgi.maxFrameRate = 32/' $DXVK_CONFIG_FILE
+		sed -i '5s/.*/d3d9.maxFrameRate = 32/' $DXVK_CONFIG_FILE
+	fi
+	echo "Resident Evil 6">$PREFIX/glibc/opt/custom-preset-current.conf
 ;;
 2)
 	echo "unset BOX64_DYNAREC_ALIGNED_ATOMICS">$PREFIX/glibc/opt/conf/dynarec/aligned_atomics.conf
@@ -48,9 +57,28 @@ case $defitem in
 	echo "export BOX64_DYNAREC_CALLRET=0">$PREFIX/glibc/opt/conf/dynarec/callret.conf
 	echo "unset BOX64_DYNAREC_FASTROUND">$PREFIX/glibc/opt/conf/dynarec/fastround.conf
 	echo "unset BOX64_IGNOREINT3">$PREFIX/glibc/opt/conf/dynarec/ignoreint3.conf
-	echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
-	sed -i '4s/.*/dxgi.maxFrameRate = 45/' $DXVK_CONFIG_FILE
-	sed -i '5s/.*/d3d9.maxFrameRate = 45/' $DXVK_CONFIG_FILE
+	if [ "$DYNAREC_PRESET_RESOLUTION_SWITCH" = "enabled" ]; then
+		echo "1280x720">$PREFIX/glibc/opt/last-resolution.conf
+	fi
+	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
+		sed -i '4s/.*/dxgi.maxFrameRate = 45/' $DXVK_CONFIG_FILE
+		sed -i '5s/.*/d3d9.maxFrameRate = 45/' $DXVK_CONFIG_FILE
+	fi
+	echo "TES-IV Oblivion">$PREFIX/glibc/opt/custom-preset-current.conf
+;;
+200)
+	if [ "$DYNAREC_PRESET_RESOLUTION_SWITCH" = "enabled" ]; then
+		echo "export DYNAREC_PRESET_RESOLUTION_SWITCH=disabled">$PREFIX/glibc/opt/conf/custom-preset-resolution.conf
+	else
+		echo "export DYNAREC_PRESET_RESOLUTION_SWITCH=enabled">$PREFIX/glibc/opt/conf/custom-preset-resolution.conf
+	fi
+;;
+201)
+	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
+		echo "export DYNAREC_PRESET_FPS_SWITCH=disabled">$PREFIX/glibc/opt/conf/custom-preset-fps.conf
+	else
+		echo "export DYNAREC_PRESET_FPS_SWITCH=enabled">$PREFIX/glibc/opt/conf/custom-preset-fps.conf
+	fi
 ;;
 255)
 	break

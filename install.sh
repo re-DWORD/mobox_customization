@@ -11,11 +11,17 @@ wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD
 wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/scripts/custom-system-settings -P $PREFIX/glibc/opt/scripts
 wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/scripts/mobox_custom_menu -P $PREFIX/glibc/opt/scripts
 wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/scripts/custom-dynarec-presets -P $PREFIX/glibc/opt/scripts
+wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/conf/custom-preset-current.conf -P $PREFIX/glibc/opt/
+wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/conf/custom-preset-fps.conf -P $PREFIX/glibc/opt/conf/
+wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/conf/custom-preset-resolution.conf -P $PREFIX/glibc/opt/conf/
 chmod 744 $PREFIX/glibc/opt/scripts/custom-mobox
 chmod 744 $PREFIX/glibc/opt/scripts/custom-settings
 chmod 744 $PREFIX/glibc/opt/scripts/custom-system-settings 
 chmod 744 $PREFIX/glibc/opt/scripts/mobox_custom_menu
 chmod 744 $PREFIX/glibc/opt/scripts/custom-dynarec-presets
+chmod 744 $PREFIX/glibc/opt/custom-preset-current.conf
+chmod 744 $PREFIX/glibc/opt/conf/custom-preset-fps.conf
+chmod 744 $PREFIX/glibc/opt/conf/custom-preset-resolution.conf
 wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/uninstall.sh -P $PREFIX/custom-mobox
 wget -q --retry-connrefused --tries=0 https://raw.githubusercontent.com/re-DWORD/mobox_customization/main/custom-mobox-update -P $PREFIX/custom-mobox
 chmod 744 $PREFIX/custom-mobox/uninstall.sh

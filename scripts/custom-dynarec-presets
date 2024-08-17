@@ -42,11 +42,11 @@ case $defitem in
 	echo "unset BOX64_DYNAREC_FASTROUND">$PREFIX/glibc/opt/conf/dynarec/fastround.conf
 	echo "unset BOX64_IGNOREINT3">$PREFIX/glibc/opt/conf/dynarec/ignoreint3.conf
 	if [ "$DYNAREC_PRESET_RESOLUTION_SWITCH" = "enabled" ]; then
-		echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
+		echo "854x480">$PREFIX/glibc/opt/last-resolution.conf
 	fi
 	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
-		sed -i '4s/.*/dxgi.maxFrameRate = 32/' $DXVK_CONFIG_FILE
-		sed -i '5s/.*/d3d9.maxFrameRate = 32/' $DXVK_CONFIG_FILE
+		sed -i '4s/.*/dxgi.maxFrameRate = 45/' $DXVK_CONFIG_FILE
+		sed -i '5s/.*/d3d9.maxFrameRate = 45/' $DXVK_CONFIG_FILE
 	fi
 	echo "Resident Evil 6">$PREFIX/glibc/opt/custom-preset-current.conf
 ;;
@@ -62,7 +62,7 @@ case $defitem in
 	echo "unset BOX64_DYNAREC_FASTROUND">$PREFIX/glibc/opt/conf/dynarec/fastround.conf
 	echo "unset BOX64_IGNOREINT3">$PREFIX/glibc/opt/conf/dynarec/ignoreint3.conf
 	if [ "$DYNAREC_PRESET_RESOLUTION_SWITCH" = "enabled" ]; then
-		echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
+		echo "854x480">$PREFIX/glibc/opt/last-resolution.conf
 	fi
 	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
 		sed -i '4s/.*/dxgi.maxFrameRate = 45/' $DXVK_CONFIG_FILE
@@ -82,7 +82,7 @@ case $defitem in
 	echo "export BOX64_DYNAREC_FASTROUND=1">$PREFIX/glibc/opt/conf/dynarec/fastround.conf
 	echo "unset BOX64_IGNOREINT3">$PREFIX/glibc/opt/conf/dynarec/ignoreint3.conf
 	if [ "$DYNAREC_PRESET_RESOLUTION_SWITCH" = "enabled" ]; then
-		echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
+		echo "854x480">$PREFIX/glibc/opt/last-resolution.conf
 	fi
 	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
 		sed -i '4s/.*/dxgi.maxFrameRate = 35/' $DXVK_CONFIG_FILE
@@ -102,7 +102,7 @@ case $defitem in
 	echo "unset BOX64_DYNAREC_FASTROUND">$PREFIX/glibc/opt/conf/dynarec/fastround.conf
 	echo "unset BOX64_IGNOREINT3">$PREFIX/glibc/opt/conf/dynarec/ignoreint3.conf
 	if [ "$DYNAREC_PRESET_RESOLUTION_SWITCH" = "enabled" ]; then
-		echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
+		echo "854x480">$PREFIX/glibc/opt/last-resolution.conf
 	fi
 	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
 		sed -i '4s/.*/dxgi.maxFrameRate = 32/' $DXVK_CONFIG_FILE
@@ -122,7 +122,7 @@ case $defitem in
 	echo "unset BOX64_DYNAREC_FASTROUND">$PREFIX/glibc/opt/conf/dynarec/fastround.conf
 	echo "unset BOX64_IGNOREINT3">$PREFIX/glibc/opt/conf/dynarec/ignoreint3.conf
 	if [ "$DYNAREC_PRESET_RESOLUTION_SWITCH" = "enabled" ]; then
-		echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
+		echo "854x480">$PREFIX/glibc/opt/last-resolution.conf
 	fi
 	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
 		sed -i '4s/.*/dxgi.maxFrameRate = 45/' $DXVK_CONFIG_FILE

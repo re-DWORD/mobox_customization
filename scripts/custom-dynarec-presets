@@ -45,8 +45,8 @@ case $defitem in
 		echo "848x480">$PREFIX/glibc/opt/last-resolution.conf
 	fi
 	if [ "$DYNAREC_PRESET_FPS_SWITCH" = "enabled" ]; then
-		sed -i '4s/.*/dxgi.maxFrameRate = 45/' $DXVK_CONFIG_FILE
-		sed -i '5s/.*/d3d9.maxFrameRate = 45/' $DXVK_CONFIG_FILE
+		sed -i '4s/.*/dxgi.maxFrameRate = 32/' $DXVK_CONFIG_FILE
+		sed -i '5s/.*/d3d9.maxFrameRate = 32/' $DXVK_CONFIG_FILE
 	fi
 	echo "Resident Evil 6">$PREFIX/glibc/opt/custom-preset-current.conf
 ;;
